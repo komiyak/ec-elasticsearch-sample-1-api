@@ -8,9 +8,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       - id: deploy
         uses: google-github-actions/deploy-appengine@main
         with:
           project_id: ec-elasticsearch-1-api
           credentials: ${{secrets.GCP_CREDENTIALS}}
-          deliverables: app.yaml
