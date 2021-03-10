@@ -13,3 +13,4 @@ jobs:
         with:
           project_id: ec-elasticsearch-1-api
           credentials: ${{secrets.GCP_CREDENTIALS}}
+          deliverables: app.yaml
