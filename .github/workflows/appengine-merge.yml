@@ -1,0 +1,15 @@
+name: Deploy to AppEngine
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - id: deploy
+        uses: google-github-actions/deploy-appengine@main
+        with:
+          project_id: ec-elasticsearch-1-api
+          credentials: ${{secrets.GCP_CREDENTIALS}}
