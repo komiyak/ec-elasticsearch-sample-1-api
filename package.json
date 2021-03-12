@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "jsdoc": "jsdoc index.js",
+    "swagger-jsdoc": "swagger-jsdoc -d swaggerDefinition.js index.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,11 @@
   },
   "homepage": "https://github.com/komiyak/ec-elasticsearch-sample-1-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.6"
   }
 }
