@@ -10,6 +10,9 @@ This is the `ec-elasticsearch-sample-1` project's backend.
 $ npm start  # Started at localhost:3000
 ```
 
+You can see the Swagger UI of this api.  
+http://localhost:3000/api-docs
+
 # Summary of scripts
 
 ```shell
