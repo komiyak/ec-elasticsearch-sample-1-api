@@ -28,6 +28,12 @@ $ npm run jsdoc
 
 Python >= 3.8
 
+### Install dependencies
+
+```shell
+$ pip install -r requirements.txt  # We recommend to use virtualenv.
+```
+
 ### How to use
 
 See the document's help of the script.
