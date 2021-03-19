@@ -19,3 +19,19 @@ http://localhost:3000/api-docs
 # Generate and export the api document to './out' from the source code by JSDoc.
 $ npm run jsdoc
 ```
+
+# Scripts (in Python)
+
+`<project_root>/script_*.py` are useful scripts for development.
+
+### Supported Python Versions
+
+Python >= 3.8
+
+### How to use
+
+See the document's help of the script.
+
+```shell
+$ script_<your_choice>.py -h
+```
