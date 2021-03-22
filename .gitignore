@@ -2,3 +2,6 @@ node_modules
 .idea
 out
 swagger.json
+
+# Secret key files
+firestore_credentials.json
