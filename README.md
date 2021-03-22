@@ -7,6 +7,7 @@ This is the `ec-elasticsearch-sample-1` project's backend.
 # How to run in local
 
 ```shell
+$ docker-compose -f docker-compose.local-services.yml up   # Ready required services in local.
 $ npm start  # Started at localhost:3000
 ```
 
