@@ -18,13 +18,14 @@ jobs:
         working-directory: ./appengine
         env:
           ELASTICSEARCH_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
+      - name: Copy app.yaml to the project root.
+        run: cp appengine/app.yaml app.yaml
 
       - id: deploy
         uses: google-github-actions/deploy-appengine@main
         with:
           project_id: ec-elasticsearch-1-api
           credentials: ${{secrets.GCP_CREDENTIALS}}
-          deliverables: appengine/app.yaml
 
       - name: Clean up the generated file.
-        run: rm -rf appengine/app.yaml
+        run: rm -rf app.yaml
