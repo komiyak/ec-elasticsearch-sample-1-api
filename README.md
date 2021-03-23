@@ -14,6 +14,12 @@ $ npm start  # Started at localhost:3000
 You can see the Swagger UI of this api.  
 http://localhost:3000/api-docs
 
+# Environment variables
+
+| Name | Default | Summary | Required |
+| `PORT` | `3000` | The port number of this api | NO |
+| `ELASTICSEARCH_HOST` | `http://localhost:9200` | The Elasticsearch's host to search | NO |
+
 # Summary of scripts
 
 ```shell

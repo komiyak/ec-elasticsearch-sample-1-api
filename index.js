@@ -4,6 +4,9 @@ const port = process.env.PORT || 3000
 const swaggerDocument = require('./swaggerDefinition')
 const swaggerUi = require('swagger-ui-express')
 
+const { Client } = require('@elastic/elasticsearch')
+const client = new Client({ node: process.env.ELASTICSEARCH_HOST || 'http://localhost:9200' })
+
 /** Serve a swagger ui */
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
 
@@ -63,7 +66,24 @@ app.get('/', (req, res) => {
  *                        example: https://example.com/image/xxx.png
  */
 app.get('/search', (req, res) => {
-  res.send('GET /search')
+  client.search({
+    index: 'product_search',
+    body: {
+      query: {
+        multi_match: {
+          query: "ランチ", // dummy search string
+          fields: ["name", "description"]
+        }
+      }
+    }
+  }, (err, result) => {
+    if (err) {
+      console.error(err)
+      res.send('raised an error.')
+    } else {
+      res.send(result.body.hits.hits)
+    }
+  })
 })
 
 app.listen(port, () => {
