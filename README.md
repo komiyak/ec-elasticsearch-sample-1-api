@@ -49,3 +49,12 @@ See the document's help of the script.
 ```shell
 $ script_<your_choice>.py -h
 ```
+
+# About the staging server
+
+Hosting on App Engine.
+This api project is deployed by GitHub Actions automatically.
+
+URL is: https://ec-elasticsearch-1-api.an.r.appspot.com/
+
+Hosting the Elasticearch for the staging on app.bonsai.io using sandbox cluster.
