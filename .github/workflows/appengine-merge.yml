@@ -8,11 +8,23 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1 # To build the app.yaml file.
+        with:
+          node-version: '12'
+      - name: Generate the app.yaml from the template file.
+        run: node compile-app-yaml.js
+        working-directory: ./appengine
+        env:
+          ELASTICSEARCH_HOST: ${{ secrets.ELASTICSEARCH_HOST }}
 
       - id: deploy
         uses: google-github-actions/deploy-appengine@main
         with:
           project_id: ec-elasticsearch-1-api
           credentials: ${{secrets.GCP_CREDENTIALS}}
+          deliverables: appengine/app.yaml
+
+      - name: Clean up the generated file.
+        run: rm -rf appengine/app.yaml
