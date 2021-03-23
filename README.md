@@ -17,6 +17,7 @@ http://localhost:3000/api-docs
 # Environment variables
 
 | Name | Default | Summary | Required |
+| --- | --- | --- | --- |
 | `PORT` | `3000` | The port number of this api | NO |
 | `ELASTICSEARCH_HOST` | `http://localhost:9200` | The Elasticsearch's host to search | NO |
 
