@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 
-const template = fs.readFileSync('appengine/app.yaml.template').toString();
+const template = fs.readFileSync('app.yaml.template').toString();
 let content = template;
 
 for (const match of template.matchAll(/\${{([A-Z_]*)}}/g)) {
@@ -10,5 +10,5 @@ for (const match of template.matchAll(/\${{([A-Z_]*)}}/g)) {
   content = content.replace(match[0], `'${process.env[envName]}'`);
 }
 
-fs.writeFileSync('appengine/app.yaml', content);
+fs.writeFileSync('app.yaml', content);
 
