@@ -71,7 +71,7 @@ app.get('/search', (req, res) => {
     body: {
       query: {
         multi_match: {
-          query: "ランチ", // dummy search string
+          query: req.query.q,
           fields: ["name", "description"]
         }
       }
