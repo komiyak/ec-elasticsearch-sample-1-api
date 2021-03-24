@@ -81,7 +81,20 @@ app.get('/search', (req, res) => {
       console.error(err)
       res.send('raised an error.')
     } else {
-      res.send(result.body.hits.hits)
+      if (result.body.hits.hits && result.body.hits.hits.length > 0) {
+        let responseData = []
+        for (let hit of result.body.hits.hits) {
+          responseData.push({
+            id: hit._id,
+            name: hit._source.name,
+            price: hit._source.price,
+            thumbnailUrl: hit._source.thumbnail_url
+          })
+        }
+        res.json({ 'data': responseData })
+      } else {
+        res.json({ 'data': [] })
+      }
     }
   })
 })
