@@ -7,8 +7,13 @@ const swaggerUi = require('swagger-ui-express')
 const { Client } = require('@elastic/elasticsearch')
 const client = new Client({ node: process.env.ELASTICSEARCH_HOST || 'http://localhost:9200' })
 
+const cors = require('cors')
+
 /** Serve a swagger ui */
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument))
+
+/** Enable all CORS requests (CAUTION: This is for development only.) */
+app.use(cors())
 
 /**
  * @openapi
